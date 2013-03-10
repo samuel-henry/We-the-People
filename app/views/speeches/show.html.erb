@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @speech.date %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @speech.location %>
+</p>
+
+<p>
+  <b>Speaker:</b>
+  <%= @speech.speaker %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @speech.title %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <% @speech.text.each do |token| %>
+       <span class="word"><%= token %></span>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_speech_path(@speech) %> |
+<%= link_to 'Back', speeches_path %>

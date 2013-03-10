@@ -5,6 +5,63 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script>
+
+  	onload=load;
+
+  	function load() {
+  		var sound
+  		, words = document.getElementsByClassName("word")
+  		, wordSounds = new Array();
+
+  		for (var i = 0; i < words.length; i++) {
+  			sound = new Audio("/audio/" + words[i].innerHTML + ".wav");
+  			wordSounds.push(sound);
+  		}
+
+  		play_sound_queue(wordSounds);
+
+  	}
+
+  	//from user Loupax at http://stackoverflow.com/a/9456425/1443027
+	function play(audio, callback) {
+
+	  audio.play();
+
+	  if(callback)
+	  {
+	      //When the audio object completes it's playback, call the callback
+	      //provided      
+	      audio.addEventListener('ended', callback);
+	  }
+	}
+
+	//from user Loupax at http://stackoverflow.com/a/9456425/1443027
+	function play_sound_queue(sounds){
+
+	    var index = 0;
+	    function recursive_play()
+	    {
+	      //If the index is the last of the table, play the sound
+	      //without running a callback after       
+	      if(index+1 === sounds.length)
+	      {
+	        play(sounds[index],null);
+	      }
+	      else
+	      {
+	        //Else, play the sound, and when the playing is complete
+	        //increment index by one and play the sound in the 
+	        //indexth position of the array
+	        play(sounds[index],function(){index++; recursive_play();});
+	      }
+	    }
+
+		//Call the recursive_play for the first time
+		recursive_play();   
+	}
+
+</script>
 </head>
 <body>
 
