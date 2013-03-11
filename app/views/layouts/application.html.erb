@@ -64,6 +64,10 @@
 	}
 
 	function checkFileExists(file) {
+		if (!file) {
+			return false;
+		}
+		
 		var http = new XMLHttpRequest();
 		http.open("get",file.currentSrc, false);
 	    try {
