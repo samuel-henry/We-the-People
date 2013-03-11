@@ -1,33 +1,35 @@
-<h1>Listing speeches</h1>
+<h1 class="speechTitle">We the People</h1>
 
 <table>
   <tr>
-    <th>Date</th>
-    <th>Location</th>
     <th>Speaker</th>
     <th>Title</th>
+    <th>Date</th>
+    <th>Location</th>
+    <!--
     <th>Text</th>
     <th></th>
     <th></th>
-    <th></th>
+    <th></th>-->
   </tr>
 
 <% @speeches.each do |speech| %>
   <tr>
+    <td class="speechGiver"><%= speech.speaker %></td>
+    <td class="speechTitle"><%= link_to speech.title, speech%></td>
     <td><%= speech.date %></td>
     <td><%= speech.location %></td>
-    <td><%= speech.speaker %></td>
-    <td><%= speech.title %></td>
+    <!--
     <td><% speech.text.each do |token| %>
             <%=token %>
         <% end %></td>
     <td><%= link_to 'Show', speech %></td>
     <td><%= link_to 'Edit', edit_speech_path(speech) %></td>
-    <td><%= link_to 'Destroy', speech, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', speech, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Speech', new_speech_path %>
+<!--<%= link_to 'New Speech', new_speech_path %>-->

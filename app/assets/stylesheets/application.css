@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+ .speechTitle {
+ 	color: #BF0A30;
+ }
+
+ .speechGiver {
+ 	color: #002868;	
+ }
