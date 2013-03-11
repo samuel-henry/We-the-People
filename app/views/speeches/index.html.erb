@@ -1,7 +1,7 @@
 <h1 class="speechTitle">We the People</h1>
 
-<table>
-  <tr>
+<table cellspacing="10">
+  <tr class="speechGiver">
     <th>Speaker</th>
     <th>Title</th>
     <th>Date</th>
@@ -15,7 +15,7 @@
 
 <% @speeches.each do |speech| %>
   <tr>
-    <td class="speechGiver"><%= speech.speaker %></td>
+    <td><%=link_to speech.speaker, "http://www.wikipedia.org/wiki/#{speech.speaker}" %></td>
     <td class="speechTitle"><%= link_to speech.title, speech%></td>
     <td><%= speech.date %></td>
     <td><%= speech.location %></td>
