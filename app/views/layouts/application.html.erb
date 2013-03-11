@@ -15,7 +15,7 @@
   		, wordSounds = new Array();
 
   		for (var i = 0; i < words.length; i++) {
-  			sound = new Audio("/audio/" + words[i].innerHTML + ".wav");
+  			sound = new Audio("/audio/" + words[i].innerHTML.toLowerCase() + ".wav");
   			wordSounds.push(sound);
   		}
 
