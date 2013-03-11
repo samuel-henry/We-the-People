@@ -25,14 +25,16 @@
 
   	//from user Loupax at http://stackoverflow.com/a/9456425/1443027
 	function play(audio, callback) {
-
-	  audio.play();
-
-	  if(callback)
-	  {
+	  
+	  if (checkFileExists(audio)) {
+	  	audio.play();
+	  	if(callback) {
 	      //When the audio object completes it's playback, call the callback
 	      //provided      
 	      audio.addEventListener('ended', callback);
+	  	}
+	  } else {
+	  	callback.call;
 	  }
 	}
 
@@ -59,6 +61,19 @@
 
 		//Call the recursive_play for the first time
 		recursive_play();   
+	}
+
+	function checkFileExists(file) {
+		var http = new XMLHttpRequest();
+		http.open("get",file.currentSrc, false);
+	    try {
+	    	
+	    	http.send(null);
+	    } catch(e) {
+	  		return false;
+	  	}
+	  	return true;
+
 	}
 
 </script>
