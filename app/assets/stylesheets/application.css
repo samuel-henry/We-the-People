@@ -19,3 +19,7 @@
  .speechGiver {
  	color: #002868;	
  }
+
+ .summary {
+ 	font-style: italic;
+ }
