@@ -6,10 +6,18 @@
 
 <div>
   <% @speech.text.each do |token| %>
-       <% if File.exist?("#{Rails.root}/public/audio/#{token.downcase.gsub(/[^a-z\s]/, '')}.mp3") %> 
+       <% file_name = token.downcase.gsub(/[^a-z\s]/, '') %>
+       <% if File.exist?("#{Rails.root}/public/audios/#{file_name}.mp3") %> 
           <span class="word"><%= token %></span>
        <% else %>
           <span><%= token %></span>
        <% end %>
+  <% end %>
+
+  <% @speech.text.uniq do |uniq_word| %>
+    <% uniq_word = uniq_word.downcase.gsub(/[^a-z\s]/, '') %>
+    <% if File.exist?("#{Rails.root}/public/audios/#{uniq_word}.mp3") %> 
+      <%= audio_tag "#{uniq_word}.mp3", :id => "audio_#{uniq_word}" %>
+    <% end %>
   <% end %>
 </div>
