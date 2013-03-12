@@ -16,7 +16,7 @@
 <% @speeches.each do |speech| %>
   <tr>
     <td><%=link_to speech.speaker, "http://www.wikipedia.org/wiki/#{speech.speaker}" %></td>
-    <td class="speechTitle"><%= link_to speech.title, speech%></td>
+    <td class="speechTitle"><%= link_to speech.title, speech %></td>
     <td><%= speech.date %></td>
     <td><%= speech.location %></td>
     <!--

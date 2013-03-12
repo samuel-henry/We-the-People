@@ -12,12 +12,20 @@
  *= require_tree .
  */
 
- .speechTitle {
+ .speechTitle, #title_wikipedia {
+ 	color: #A10B0B;
+ }
+
+ #title_wikipedia:hover {
  	color: #BF0A30;
  }
 
- .speechGiver {
+ .speechGiver, #speaker_wikipedia {
  	color: #002868;	
+ }
+
+ #speaker_wikipedia:hover {
+ 	color: #0011CF;
  }
 
  .summary {
