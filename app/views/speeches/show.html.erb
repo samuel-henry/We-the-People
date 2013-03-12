@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1 class="speechTitle"> <%=link_to @speech.title, "http://www.wikipedia.org/wiki/#{@speech.speaker}", :id => "title_wikipedia", :title => "Wikipedia link" %></h1>
+<h1 class="speechTitle"> <%=link_to @speech.title, "http://www.wikipedia.org/wiki/#{@speech.title}", :id => "title_wikipedia", :title => "Wikipedia link" %></h1>
 <h2 class="speechGiver"><%= link_to @speech.speaker, "http://www.wikipedia.org/wiki/#{@speech.speaker}", :id => "speaker_wikipedia", :title => "Wikipedia link" %></h2>
 <span><%= @speech.date %></span></br>
 <span><%= @speech.location %></span></br></br>
