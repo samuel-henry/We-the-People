@@ -6,6 +6,10 @@
 
 <div>
   <% @speech.text.each do |token| %>
-       <span class="word"><%= token %></span>
+       <% if File.exist?("#{Rails.root}/public/audio/#{token}.mp3") %> 
+          <span class="word"><%= token %></span>
+       <% else %>
+          <span><%= token %></span>
+       <% end %>
   <% end %>
 </div>
