@@ -5,7 +5,7 @@
 <span><%= @speech.location %></span></br></br>
 
 <div>
-  <% @speech.text.each do |token| %>
+  <% @speech.text.split.each do |token| %>
        <% file_name = token.downcase.gsub(/[^a-z\s]/, '') %>
        <% if File.exist?("#{Rails.root}/public/audios/#{file_name}.mp3") %> 
           <span class="word"><%= token %></span>
@@ -15,7 +15,7 @@
   <% end %>
 
   <!--TODO: add .ogg files-->
-  <% @speech.text.uniq do |uniq_word| %>
+  <% @speech.text.split.uniq do |uniq_word| %>
     <% uniq_word = uniq_word.downcase.gsub(/[^a-z\s]/, '') %>
     <% if File.exist?("#{Rails.root}/public/audios/#{uniq_word}.mp3") %> 
       <%= audio_tag "#{uniq_word}.mp3", :id => "audio_#{uniq_word}" %>
