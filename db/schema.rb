@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20130309202101) do
     t.string   "date"
     t.string   "location"
     t.string   "speaker"
-    t.string   "text"
+    t.string   "text", :limit => 4294967295
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
