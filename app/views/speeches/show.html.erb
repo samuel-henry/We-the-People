@@ -14,7 +14,7 @@
        <% end %>
   <% end %>
 
-  <!--TODO: add .ogg -->
+  <!--TODO: add .ogg files-->
   <% @speech.text.uniq do |uniq_word| %>
     <% uniq_word = uniq_word.downcase.gsub(/[^a-z\s]/, '') %>
     <% if File.exist?("#{Rails.root}/public/audios/#{uniq_word}.mp3") %> 
