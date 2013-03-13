@@ -8,6 +8,9 @@ gem 'rails', '3.2.11'
 gem 'sqlite3'
 gem 'mysql2'
 
+#detect browser to determine file type for sound
+gem 'browser'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
