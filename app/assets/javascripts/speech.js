@@ -1,6 +1,6 @@
-	onload=load;
+	onload=playSpeech;
 
-  	function load() {
+  	function playSpeech() {
   		var sound 	//store audio elements while iterating over corresponding words
   		, words = document.getElementsByClassName("word") 	//get words that have been recorded
   		, wordSounds = new Array()	//store the audio elements for the recorded words
@@ -14,16 +14,16 @@
 
   		//if we found at least one recorded word, start playback
   		if (wordSounds.length > 0) {
-  			play_sound_queue(wordSounds, words);
+  			playSoundQueue(wordSounds, words);
   		}
   	}
 
 	//recursive approach derived http://stackoverflow.com/a/9456425/1443027
-	function play_sound_queue(sounds, words){
+	function playSoundQueue(sounds, words){
 		//index of word to be played
 	    var index = 0;
 
-	    function recursive_play()
+	    function recursivePlay()
 	    {
 	      //highlight the word as its spoken
 	      words[index].className = "word spokenWord";
@@ -36,12 +36,12 @@
 	        //else, play the sound, and when the playing is complete
 	        //remove the event listener, increment index by one and 
 	        //play the sound in the indexth position of the array
-	        play(sounds[index],function(){$(sounds[index]).unbind('ended'); index++; recursive_play();});
+	        play(sounds[index],function(){$(sounds[index]).unbind('ended'); index++; recursivePlay();});
 	      }
 	    }
 
 		//call recursive_play for the first time
-		recursive_play();
+		recursivePlay();
 	}
 
 
