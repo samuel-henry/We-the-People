@@ -1,11 +1,13 @@
 ---
-hello.mp3: hello.mp3
-hello/index.mp3: hello.mp3
-rails.png: rails.png
-rails/index.png: rails.png
-application.js: application.js
-application/index.js: application.js
-application.css: application.css
-application/index.css: application.css
-jquery.min.map: jquery.min.map
-jquery/index.min.map: jquery.min.map
+hello.mp3: hello-6fbbb84f3998d648844fb279b44929bf.mp3
+hello/index.mp3: hello-6fbbb84f3998d648844fb279b44929bf.mp3
+world.mp3: world-c49e3c2ea8aa3fb73dce254e81079576.mp3
+world/index.mp3: world-c49e3c2ea8aa3fb73dce254e81079576.mp3
+rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
+rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
+application.js: application-eb73641a26ba5a0cec4a9d1563e61503.js
+application/index.js: application-eb73641a26ba5a0cec4a9d1563e61503.js
+application.css: application-f4a991080e50709ec8a20e7a9743009d.css
+application/index.css: application-f4a991080e50709ec8a20e7a9743009d.css
+jquery.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map
+jquery/index.min.map: jquery.min-6c267bfd2b3f36e6edccb2e584934c1c.map

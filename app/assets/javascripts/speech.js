@@ -1,61 +1,64 @@
-
-  	onload=load;
+	onload=load;
 
   	function load() {
-  		var sound
-  		, words = document.getElementsByClassName("word")
-  		, wordSounds = new Array()
-  		, wordSoundMap = {};
+  		var sound 	//store audio elements while iterating over corresponding words
+  		, words = document.getElementsByClassName("word") 	//get words that have been recorded
+  		, wordSounds = new Array()	//store the audio elements for the recorded words
+  		, i;	//declare i outside loop for performance
 
-  		for (var i = 0; i < words.length; i++) {
+  		//collect audio elements for each word
+  		for (i = 0; i < words.length; i++) {
   			sound = document.getElementById("audio_" + words[i].innerHTML.toLowerCase().replace(/\W/g, ''));
-  			wordSoundMap[sound] = words[i];
   			wordSounds.push(sound);
   		}
+
+  		//if we found at least one recorded word, start playback
   		if (wordSounds.length > 0) {
   			play_sound_queue(wordSounds, words);
   		}
   	}
 
-	//from user Loupax at http://stackoverflow.com/a/9456425/1443027
+	//recursive approach derived http://stackoverflow.com/a/9456425/1443027
 	function play_sound_queue(sounds, words){
-
+		//index of word to be played
 	    var index = 0;
+
 	    function recursive_play()
 	    {
 	      //highlight the word as its spoken
 	      words[index].className = "word spokenWord";
-	      
-	      //If the index is the last of the table, play the sound
+
+	      //if the index is the last of the table, play the sound
 	      //without running a callback after       
 	      if(index+1 === sounds.length)
-	      {
-	        play(sounds[index],null);
-	      }
-	      else
-	      {
-	        //Else, play the sound, and when the playing is complete
+	      { play(sounds[index],null);
+	      } else {
+	        //else, play the sound, and when the playing is complete
 	        //remove the event listener, increment index by one and 
 	        //play the sound in the indexth position of the array
 	        play(sounds[index],function(){$(sounds[index]).unbind('ended'); index++; recursive_play();});
 	      }
 	    }
 
-		//Call the recursive_play for the first time
-		recursive_play();   
+		//call recursive_play for the first time
+		recursive_play();
 	}
 
 
-  	//from user Loupax at http://stackoverflow.com/a/9456425/1443027
+  	//also inspired by http://stackoverflow.com/a/9456425/1443027
 	function play(audio, callback) {
-	  if (audio) {
-	  	audio.play();
-	  	if(callback) {
-	      //When the audio object completes it's playback, call the callback
-	      //provided      
-	      $(audio).bind('ended', callback);
-	  	}
-	  } else {
-	  	callback.call;
-	  }
+
+		//only call play() if an element was passed in
+		if (audio) {
+
+			//play the recording
+		  	audio.play();
+
+		  	if(callback) {
+		      //when the audio object completes it's playback, call the callback
+		      //provided. use bind() so we can unbind it after playback since the same 
+		      //audio element could be played multiple times     
+		      $(audio).bind('ended', callback);
+		  	}
+	  	} 
 	}

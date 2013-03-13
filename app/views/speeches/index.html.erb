@@ -7,11 +7,6 @@
         <th>Title</th>
         <th>Location</th>
         <th>Date</th>
-        <!--
-        <th>Text</th>
-        <th></th>
-        <th></th>
-        <th></th>-->
       </tr>
 
     <% @speeches.each do |speech| %>
@@ -20,13 +15,7 @@
         <td class="speechTitle"><%= link_to speech.title, speech %></td>
         <td><%= speech.location %></td>
         <td><%= speech.date %></td>
-        
-        <!--<td><%= link_to 'Show', speech %></td>
-        <td><%= link_to 'Edit', edit_speech_path(speech) %></td>
-        <td><%= link_to 'Destroy', speech, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
     </table>
 </div>
-
-<!--<%= link_to 'New Speech', new_speech_path %>-->
