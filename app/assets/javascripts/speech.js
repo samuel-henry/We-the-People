@@ -30,8 +30,8 @@
 
 	      //if the index is the last of the table, play the sound
 	      //without running a callback after       
-	      if(index+1 === sounds.length)
-	      { play(sounds[index],null);
+	      if(index+1 === sounds.length) { 
+	      	play(sounds[index],null);
 	      } else {
 	        //else, play the sound, and when the playing is complete
 	        //remove the event listener, increment index by one and 

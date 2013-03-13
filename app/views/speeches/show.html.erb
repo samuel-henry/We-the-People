@@ -19,7 +19,7 @@
     <% uniq_word = uniq_word.downcase.gsub(/[^a-z\s]/, '') %>
     <% if File.exist?("#{Rails.root}/public/audios/#{uniq_word}.mp3") %> 
         <% (browser.firefox? or browser.opera? or browser.chrome?) ? extension = '.ogg' : extension = '.mp3' %>
-        <div><%= audio_tag "#{uniq_word}" + extension, :id => "audio_#{uniq_word}" %></div>
+        <div><%= audio_tag "#{uniq_word}" + extension, :id => "audio_#{uniq_word}", :preload => "none" %></div>
     <% else %>
     <% end %>
   <% end %>
