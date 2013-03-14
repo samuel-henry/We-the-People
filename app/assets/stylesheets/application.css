@@ -34,7 +34,6 @@
  }
 
  .informational {
- 	float: left;
  	max-width: 50%;
 	margin-bottom: 25px;
  }
@@ -48,6 +47,7 @@
  	font-size: 18px;
  	background-color: rgb(228, 228, 228);
 	padding: 6px;
+	border-bottom: 3px black solid;
  }
 
  .navigation a {
