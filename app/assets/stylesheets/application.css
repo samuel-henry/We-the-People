@@ -28,14 +28,67 @@
  	color: #0011CF;
  }
 
- .summary {
+ .summary, .informational {
  	font-style: italic;
+ 	font-size: 15px;
  }
 
  .informational {
- 	font-style: italic;
-	font-size: 11px;
-	margin-top: 25px;
+ 	float: left;
+ 	max-width: 50%;
+	margin-bottom: 25px;
  }
 
+ #page_title {
+ 	font-size: 60px;
+ 	margin-top: 3%;
+ }
 
+ .navigation {
+ 	font-size: 18px;
+ 	background-color: rgb(228, 228, 228);
+	padding: 6px;
+ }
+
+ .navigation a {
+ 	margin-right: 15px;
+ }
+
+ .navigation a:hover {
+ 	margin-right: 15px;
+ 	color: #A10B0B;
+ }
+
+  .spokenWord {
+ 	color: #BF0A30;
+ }
+
+ td a {
+ 	text-decoration: underline;
+ }
+
+ #main_container {
+ 	margin-left: 10%;
+ 	margin-right: 10%;
+ }
+
+ .speech {
+	float: left;
+	padding: 2%;
+	margin: 3%;
+	background-color: #e4e4e4;
+	max-width: 25%;
+ }
+
+ div.speechTitle a {
+ 	text-decoration: underline;
+ }
+
+ div.speechGiver {
+ 	font-weight: bold;
+ }
+
+ .speechText {
+ 	float: left; 
+ 	margin-bottom: 10%;
+ }

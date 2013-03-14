@@ -1,27 +1,31 @@
-<p id="notice"><%= notice %></p>
-<h1 class="speechTitle"> <%=link_to @speech.title, "http://www.wikipedia.org/wiki/#{@speech.title}", :id => "title_wikipedia", :title => "Wikipedia link" %></h1>
-<h2 class="speechGiver"><%= link_to @speech.speaker, "http://www.wikipedia.org/wiki/#{@speech.speaker}", :id => "speaker_wikipedia", :title => "Wikipedia link" %></h2>
-<span><%= @speech.date %></span></br>
-<span><%= @speech.location %></span></br></br>
+<div id="main_container">
+  <p id="notice"><%= notice %></p>
+  <h1 class="speechTitle"> <%=link_to @speech.title, "http://www.wikipedia.org/wiki/#{@speech.title}", :id => "title_wikipedia", :title => "Wikipedia link" %></h1>
+  <h2 class="speechGiver"><%= link_to @speech.speaker, "http://www.wikipedia.org/wiki/#{@speech.speaker}", :id => "speaker_wikipedia", :title => "Wikipedia link" %></h2>
+  <span><%= @speech.date %></span></br>
+  <span><%= @speech.location %></span></br></br>
+  <div class="informational">Note: Words that do not play have not been recorded yet</div>
+  <div>
+    
+    <div class="speechText">
+      <% @speech.speech_text.split.each do |token| %>
+           <% file_name = token.downcase.gsub(/[^a-z\s]/, '') %>
+           <% if File.exist?("#{Rails.root}/public/audios/#{file_name}.mp3") %> 
+                <span class="word"><%= token %></span>
+           <% else %>
+                <span><%= token %></span>
+           <% end %>
+      <% end %>
 
-<div>
-  <% @speech.speech_text.split.each do |token| %>
-       <% file_name = token.downcase.gsub(/[^a-z\s]/, '') %>
-       <% if File.exist?("#{Rails.root}/public/audios/#{file_name}.mp3") %> 
-            <span class="word"><%= token %></span>
-       <% else %>
-            <span><%= token %></span>
-       <% end %>
-  <% end %>
-
-  <!--TODO: add .ogg files-->
-  <% @speech.speech_text.split.uniq do |uniq_word| %>
-    <% uniq_word = uniq_word.downcase.gsub(/[^a-z\s]/, '') %>
-    <% if File.exist?("#{Rails.root}/public/audios/#{uniq_word}.mp3") %> 
-        <% (browser.firefox? or browser.opera? or browser.chrome?) ? extension = '.ogg' : extension = '.mp3' %>
-        <div><%= audio_tag "#{uniq_word}" + extension, :id => "audio_#{uniq_word}", :preload => "none" %></div>
-    <% else %>
-    <% end %>
-  <% end %>
+      <!--TODO: add .ogg files-->
+      <% @speech.speech_text.split.uniq do |uniq_word| %>
+        <% uniq_word = uniq_word.downcase.gsub(/[^a-z\s]/, '') %>
+        <% if File.exist?("#{Rails.root}/public/audios/#{uniq_word}.mp3") %> 
+            <% (browser.firefox? or browser.opera? or browser.chrome?) ? extension = '.ogg' : extension = '.mp3' %>
+            <div><%= audio_tag "#{uniq_word}" + extension, :id => "audio_#{uniq_word}", :preload => "none" %></div>
+        <% else %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<div class="informational">note: words that do not play have not been recorded yet</div>

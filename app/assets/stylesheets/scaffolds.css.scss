@@ -1,19 +1,18 @@
 body {
   background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  color: black;
+  font-family: georgia;
+  font-size: 20px;
+  margin: 0px;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+td, p {
+  line-height: 35px;
 }
 
 th {
   text-align: left;
+  font-size: 20px;
 }
 
 pre {
