@@ -21,7 +21,7 @@
       <% @speech.speech_text.split.uniq do |uniq_word| %>
         <% uniq_word = uniq_word.downcase.gsub(/[^a-z\s]/, '') %>
         <% if File.exist?("#{Rails.root}/public/audios/#{uniq_word}.mp3") %> 
-            <% (browser.firefox? or browser.opera? or browser.chrome?) ? extension = '.ogg' : extension = '.mp3' %>
+            <% (browser.firefox? or browser.opera?) ? extension = '.ogg' : extension = '.mp3' %>
             <div><%= audio_tag "#{uniq_word}" + extension, :id => "audio_#{uniq_word}", :preload => "none" %></div>
         <% else %>
         <% end %>
