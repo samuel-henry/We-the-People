@@ -73,11 +73,12 @@
  	margin-right: 10%;
  }
 
- .speech {
+.speech {
 	float: left;
 	padding: 2%;
 	margin-right: 2%;
-	margin-top: 15px;
+	margin-top: 10px;
+	margin-bottom: 15px;
 	background-color: #e4e4e4;
 	min-width: 140px;
 	max-height: 145px;
