@@ -1,3 +1,5 @@
 == We the People
 
-Listen to important speeches from U.S. history that were given prior to audio recording technology being recreated by workers from Amazon Mechanical Turk.
+We the People lets visitors listen to unrecorded speeches from U.S. history as recreated on a per-word basis by users of Amazon Mechanical Turk.
+
+Each word was recorded by an individual "Turker" in exchange for a fee. We the People recreates the speech by tying together the individual word recordings into the whole speech. The same recordings are used every time the word occurs in any speech. As words continue to be recorded, the speeches will become complete.
