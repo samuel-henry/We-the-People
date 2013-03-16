@@ -1,13 +1,9 @@
 ---
-hello.mp3: hello-4eaaa24052c0fe50d87ed2fd2806fa71.mp3
-hello/index.mp3: hello-4eaaa24052c0fe50d87ed2fd2806fa71.mp3
-world.mp3: world-0f1da90f9477705cde77d69c6bbb694f.mp3
-world/index.mp3: world-0f1da90f9477705cde77d69c6bbb694f.mp3
 rails.png: rails-be393e46542b9e1e37fff5df6c99e194.png
 rails/index.png: rails-be393e46542b9e1e37fff5df6c99e194.png
 application.js: application-a7470b6c0bd1f85fc862420477b22703.js
 application/index.js: application-a7470b6c0bd1f85fc862420477b22703.js
-application.css: application-895a185bd77068d31d5d19061983c476.css
-application/index.css: application-895a185bd77068d31d5d19061983c476.css
+application.css: application-58678179c83318a810a6a6c6dd35f761.css
+application/index.css: application-58678179c83318a810a6a6c6dd35f761.css
 jquery.min.map: jquery.min-8f993e961d136ac068b348366098269f.map
 jquery/index.min.map: jquery.min-8f993e961d136ac068b348366098269f.map
