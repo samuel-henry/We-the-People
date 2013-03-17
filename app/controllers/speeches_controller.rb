@@ -41,12 +41,6 @@ class SpeechesController < ApplicationController
   # POST /speeches.json
   def create
     @speech = Speech.new(params[:speech])
-    #@speech = Speech.new
-    #@speech.date = params[:speech][:date]
-    #@speech.location = params[:speech][:location]
-    #@speech.speaker = params[:speech][:speaker]
-    #@speech.title = params[:speech][:title]
-    #@speech.text = params[:speech][:text].split
 
     respond_to do |format|
       if @speech.save
@@ -64,7 +58,7 @@ class SpeechesController < ApplicationController
   def update
     
     @speech = Speech.find(params[:id])
-    #params[:speech][:text] = params[:speech][:text].split
+
     respond_to do |format|
       if @speech.update_attributes(params[:speech])
         format.html { redirect_to @speech, notice: 'Speech was successfully updated.' }
