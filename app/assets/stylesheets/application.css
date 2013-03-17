@@ -104,4 +104,5 @@
  .speechText {
  	float: left; 
  	margin-bottom: 10%;
+ 	line-height: 1.5;
  }
