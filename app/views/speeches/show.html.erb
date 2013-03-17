@@ -8,20 +8,15 @@
   <div>
     
     <div class="speechText">
-      <% @have = 0 %>
       <% @speech.speech_text.split.each do |token| %>
            <% file_name = token.downcase.gsub(/[^a-z\s]/, '') %>
            <% if File.exist?("#{Rails.root}/public/audios/#{file_name}.mp3") %> 
                 <span class="word"><%= token %></span>
-                <% @have = @have + 1 %>
            <% else %>
                 <span><%= token %></span>
            <% end %>
       <% end %>
 
-      <% puts "total have: " + @have.to_s %>
-
-      <!--TODO: add .ogg files-->
       <% @speech.speech_text.split.uniq do |uniq_word| %>
         <% uniq_word = uniq_word.downcase.gsub(/[^a-z\s]/, '') %>
         <% if File.exist?("#{Rails.root}/public/audios/#{uniq_word}.mp3") %> 
