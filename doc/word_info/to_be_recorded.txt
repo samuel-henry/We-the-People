@@ -53,7 +53,7 @@ commision
 #fix dash
 #change ampserands
 #change oppertunity
-
+sh loadHits.sh -input ./MTurk-Post-Word-Script/external_hit.input -question ./MTurk-Post-Word-Script/external_hit.question -properties ./MTurk-Post-Word-Script/external_hit.properties -label external_hit
 
 book
 burst
