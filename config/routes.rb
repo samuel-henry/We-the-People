@@ -2,7 +2,8 @@ WeThePeople::Application.routes.draw do
   
 	root :to => 'speeches#index'
 	get '/about' => 'about#index'
-
+	
+	resources :speeches
 	get     '/:speeches'        => 'speeches#index'
 	#get     '/:speeches/new'    => 'speeches#index'
 	#post    '/speeches'         => 'speeches#index'
@@ -10,6 +11,6 @@ WeThePeople::Application.routes.draw do
 	#get     'speeches/:id/edit' => 'speeches#index'
 	#put     '/speeches/:id'     => 'speeches#index'
 	delete  '/speeches/:id'     => 'speeches#index'
-	resources :speeches
+	#resources :speeches
 
 end
