@@ -4,8 +4,8 @@ WeThePeople::Application.routes.draw do
 	get '/about' => 'about#index'
 
 	get     '/:speeches'        => 'speeches#index'
-	get     '/:speeches/new'    => 'speeches#index'
-	post    '/speeches'         => 'speeches#index'
+	#get     '/:speeches/new'    => 'speeches#index'
+	#post    '/speeches'         => 'speeches#index'
 	get     '/speeches/:id'     => 'speeches#show'
 	#get     'speeches/:id/edit' => 'speeches#index'
 	#put     '/speeches/:id'     => 'speeches#index'
