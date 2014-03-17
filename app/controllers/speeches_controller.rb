@@ -51,7 +51,7 @@ class SpeechesController < ApplicationController
           word = Word.new
           word[:word] = speech_word
         if File.exist?("#{Rails.root}/public/audios/#{speech_word}.mp3")
-          word[:status] = "completed"
+          word[:status] = "Completed"
         else
           @mturk = Amazon::WebServices::MechanicalTurkRequester.new :Host => :Sandbox
           question_file = File.read("#{Rails.root}/app/assets/external_hit.question")
@@ -61,7 +61,7 @@ class SpeechesController < ApplicationController
           hit_id = hits[:Created].first[:HITId]
           hit_type_id = hits[:Created].first[:HITTypeId]
           word[:hit_id] = hit_id
-          word[:status] = "posted"
+          word[:status] = "Posted"
           if @mturk.host =~ /sandbox/
             word[:url] = "http://workersandbox.mturk.com/mturk/preview?groupId=#{hit_type_id}" # Sandbox Url
           else

@@ -5,8 +5,8 @@
 <table>
   <tr>
     <th>Word</th>
-    <th>Hit</th>
-    <th>Url</th>
+    <th>HIT Id</th>
+    <th>HIT Url</th>
     <th>Status</th>
     <th></th>
     <th></th>
@@ -15,25 +15,35 @@
 
 <% @words.sort { |x,y| x[:word] <=> y[:word] }.each do |word| %>
   <% answer = nil %>
-  <% if word.status == 'posted' %>
+  <% answer_url = nil %>
+  <% if word.status == 'Posted' %>
   <%   assignment = @mturk.getAssignmentsForHIT({:HITId => word.hit_id})[:Assignment] ; p assignment %>
   <%   if !assignment.nil? && assignment[:AssignmentStatus] == "Submitted" %>
   <%     answer = assignment[:Answer] %>
-  <%     #word[:status] = "Submitted" %>
-  <%     #word.save %>
+  <%     REXML::Document.new(answer).elements.each('//FreeText') do |elem| %>
+  <%      answer_url = elem.text %>
+  <%     end %>
+  <%     word[:status] = "Submitted" %>
+  <%     word[:answer_url] = answer_url %>
+  <%     word.save %>
   <%   end %>
   <% end %>
 
   <tr>
     <td><%= word.word %></td>
     <td><%= word.hit_id %></td>
-    <% if word[:status] == 'posted' %>
+    <% if word[:status] == 'Posted' %>
       <td><%= link_to 'HIT', word.url %></td>
     <% else %>
       <td></td>
     <% end %>
     <td><%= word.status %></td>
-    <td><%= answer %></td>
+    <% if word[:status] == 'Submitted' %>
+      <td><%= link_to 'Review Recording', word.answer_url %></td>
+    <% else %>
+      <td></td>
+    <% end %>
+    <td><%= word.answer_url %></td>
     <td><%= link_to 'Show', word %></td>
     <td><%= link_to 'Edit', edit_word_path(word) %></td>
     <td><%= link_to 'Destroy', word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
