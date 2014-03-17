@@ -9,18 +9,27 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312224013) do
+ActiveRecord::Schema.define(version: 20140317022335) do
 
-  create_table "speeches", :force => true do |t|
+  create_table "speeches", force: true do |t|
     t.string   "date"
     t.string   "location"
     t.string   "speaker"
-    t.text     "speech_text", :limit => 4294967295
+    t.text     "speech_text", limit: 4294967295
     t.string   "title"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "words", force: true do |t|
+    t.string   "word"
+    t.string   "hit_id"
+    t.text     "url",        limit: 255
+    t.string   "status"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end

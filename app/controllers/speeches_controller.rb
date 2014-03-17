@@ -1,4 +1,6 @@
 class SpeechesController < ApplicationController
+  require 'ruby-aws'
+
   # GET /speeches
   # GET /speeches.json
   def index
@@ -41,6 +43,34 @@ class SpeechesController < ApplicationController
   # POST /speeches.json
   def create
     @speech = Speech.new(params[:speech])
+
+    @speech[:speech_text].split(" ").uniq.each do |speech_word|
+      speech_word = speech_word.downcase.gsub(/[^a-z\s]/, '')
+      word = Word.find_by word: speech_word
+      if word.nil?
+          word = Word.new
+          word[:word] = speech_word
+        if File.exist?("#{Rails.root}/public/audios/#{speech_word}.mp3")
+          word[:status] = "completed"
+        else
+          @mturk = Amazon::WebServices::MechanicalTurkRequester.new :Host => :Sandbox
+          question_file = File.read("#{Rails.root}/app/assets/external_hit.question")
+          properties_file = Amazon::Util::DataReader.load( "#{Rails.root}/app/assets/external_hit.properties", :Properties )
+          input = [{:words=>speech_word}]
+          hits = @mturk.createHITs(properties_file, question_file, input)
+          hit_id = hits[:Created].first[:HITId]
+          hit_type_id = hits[:Created].first[:HITTypeId]
+          word[:hit_id] = hit_id
+          word[:status] = "posted"
+          if @mturk.host =~ /sandbox/
+            word[:url] = "http://workersandbox.mturk.com/mturk/preview?groupId=#{hit_type_id}" # Sandbox Url
+          else
+            word[:url] = "http://mturk.com/mturk/preview?groupId=#{hit_type_id}" # Production Url
+          end
+        end
+        word.save
+      end
+    end
 
     respond_to do |format|
       if @speech.save

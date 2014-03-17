@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuestionForm xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2005-10-01/QuestionForm.xsd">
+  <Question>
+   <QuestionIdentifier>1</QuestionIdentifier>
+   <QuestionContent>
+     <Text>1. Record yourself saying the word: <%= CGI::escape @words %></Text>
+     <Text>2. Send me the recordings</Text>
+     <List>
+		<ListItem>Turn off all background music, tv, or other audio so your room is quiet</ListItem>
+		<ListItem>Go to http://vocaroo.com</ListItem>
+		<ListItem>Click "Click to Record" button</ListItem>
+		<ListItem>Click "Allow camera and microphone access"</ListItem>
+		<ListItem>Say <%= CGI::escape @words %></ListItem>
+		<ListItem>Click "Click to Stop"</ListItem>
+		<ListItem>Click "Listen" to make sure your recording is clear, or else click "Retry"</ListItem>
+		<ListItem>Click "Click here to save"</ListItem>
+		<ListItem>Copy the url from the sharing options section (for example: http://vocaroo.com/i/s0wCMSxyWfZ5 )</ListItem>
+		<ListItem>Paste the url you just copied into the box below these instructions and submit the HIT</ListItem>
+	</List>
+	<Text>Url: (for example: http://vocaroo.com/i/s0wCMSxyWfZ5 )</Text>
+   </QuestionContent>
+   <AnswerSpecification>
+     <FreeTextAnswer/>
+   </AnswerSpecification>
+  </Question>
+</QuestionForm>
